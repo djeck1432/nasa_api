@@ -91,7 +91,8 @@ class ObjectsViewTestCase(TestCase):
     def test_get_invalid_date_format(self):
         # Test GET request with invalid date format
         response = self.client.get(
-            "/api/objects/", {"start_date": "2022-01-01 12:00:00", "end_date": "2022-01-03"}
+            "/api/objects/",
+            {"start_date": "2022-01-01 12:00:00", "end_date": "2022-01-03"},
         )
         self.assertEqual(response.status_code, 400)
         self.assertEqual(
@@ -101,17 +102,18 @@ class ObjectsViewTestCase(TestCase):
 
     def test_get_success(self):
         # Test successful GET request
-        return_value = [{
-            "name": "(2021 AX3)",
-            "size_estimate": 0.03,
-            "date": "2022-01-12",
-            "distance": 30361046.065845396
-        }]
-        with patch.object(
-            NasaAPI, "get_earth_objects", return_value=return_value
-        ):
+        return_value = [
+            {
+                "name": "(2021 AX3)",
+                "size_estimate": 0.03,
+                "date": "2022-01-12",
+                "distance": 30361046.065845396,
+            }
+        ]
+
+        with patch.object(NasaAPI, "get_earth_objects", return_value=return_value):
             response = self.client.get(
                 "/api/objects/", {"start_date": "2022-01-01", "end_date": "2022-01-03"}
             )
             self.assertEqual(response.status_code, 200)
-            self.assertEqual(response.json(), return_value)
+            self.assertEqual(response.json(), {"data": return_value})

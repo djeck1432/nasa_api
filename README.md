@@ -1,4 +1,4 @@
-# TODO list
+# NASA API
 
 ## Installation:
 
@@ -9,7 +9,7 @@ cd project
 ```
 - Clone repository to `project` dir: 
 ```bash
-git clone git@github.com:djeck1432/<project_name>.git
+git clone git@github.com:djeck1432/nasa_api.git
 ```
 - Run docker-compose:
 ```
@@ -18,4 +18,12 @@ docker-compose up -d
 - Stop docker-compose:
 ```bash
 docker-compose down
+```
+
+## How to run test
+
+1. Go to root foolder, where `manage.py` located
+2. Run next commnand:
+```bash
+python manage.py test
 ```
