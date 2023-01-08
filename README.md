@@ -22,8 +22,8 @@ docker-compose down
 
 ## How to run test
 
-1. Go to root foolder, where `manage.py` located
-2. Run next commnand:
+1. Go to root folder, where `manage.py` located
+2. Run next command:
 ```bash
 python manage.py test
 ```
