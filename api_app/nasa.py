@@ -19,7 +19,7 @@ class NasaAPI:
     https://api.nasa.gov/
     """
 
-    API_KEY = "t4Eg5afv1fBtXa6lBWGH8wcTpxaQCgOUuvXGVmJ8" or settings.NASA_API_KEY
+    API_KEY = settings.NASA_API_KEY
     BASE_URL = "https://api.nasa.gov/neo/rest/v1/feed"
 
     @staticmethod

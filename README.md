@@ -18,6 +18,8 @@ source .env/bin/activate
 
 pip install -r requirements.txt
 ```
+
+## How to run
 - Run docker build:
 ```bash
 docker build -t nasa_image .
@@ -26,7 +28,20 @@ docker build -t nasa_image .
 ```bash
 docker run -p 8000:8000 nasa_image
 ```
-
+- Run without docker:
+```bash
+python manage.py runserver
+```
+## Set up ENV variables
+1. In root folder:
+```bash
+touch .env 
+```
+2. Follow this [link](https://api.nasa.gov/) to sign up and create `api_key`
+3. Add nasa `api key` to credentials via command
+```bash
+echo NASA_API_KEY=<your_api_key> >> .env
+```
 
 ## How to run test
 

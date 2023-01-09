@@ -124,7 +124,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # to generate nasa api key, follow next link `https://api.nasa.gov/`  and sign up
-NASA_API_KEY = os.getenv("NASA_API_KEY", "t4Eg5afv1fBtXa6lBWGH8wcTpxaQCgOUuvXGVmJ8")
+NASA_API_KEY = os.getenv("NASA_API_KEY", None)
 
 
 LOGGING = {
