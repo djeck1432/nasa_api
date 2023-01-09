@@ -11,14 +11,15 @@ cd project
 ```bash
 git clone git@github.com:djeck1432/nasa_api.git
 ```
-- Run docker-compose:
-```
-docker-compose up -d
-```
-- Stop docker-compose:
+- Run docker build:
 ```bash
-docker-compose down
+docker build -t nasa_image .
 ```
+- Run docker image:
+```bash
+docker run -p 8000:8000 nasa_image
+```
+
 
 ## How to run test
 
@@ -27,3 +28,7 @@ docker-compose down
 ```bash
 python manage.py test
 ```
+
+## Test endpoint:
+Once you run docker image, you can reach `objects` endpoint:
+`http://0.0.0.0:8000/api/objects/?start_date=2022-01-10&end_date=2022-01-15`
