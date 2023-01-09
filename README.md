@@ -11,6 +11,13 @@ cd project
 ```bash
 git clone git@github.com:djeck1432/nasa_api.git
 ```
+- If you want to run it out of docker, set up env environment:
+```bash
+python -m venv .env
+source .env/bin/activate
+
+pip install -r requirements.txt
+```
 - Run docker build:
 ```bash
 docker build -t nasa_image .
