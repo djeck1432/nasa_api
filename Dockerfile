@@ -3,7 +3,7 @@ FROM python:3.9-alpine
 WORKDIR /app
 COPY . /app
 
-RUN poetry install
+RUN pip install -r requirements.txt
 
 ENV DJANGO_SETTINGS_MODULE=mamamia.settings
 EXPOSE 8000
