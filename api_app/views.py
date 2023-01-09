@@ -24,6 +24,9 @@ class ObjectsView(View):
         start_date = query_params.get("start_date")
         end_date = query_params.get("end_date")
 
+        if not start_date or not end_date:
+            raise ValueError
+
         if not self._is_valid_date_format(start_date) or not self._is_valid_date_format(
             end_date
         ):
@@ -36,7 +39,8 @@ class ObjectsView(View):
             start_date, end_date = self._get_date_range(request.GET)
         except ValueError:
             return HttpResponse(
-                f"Invalid date format, please follow next format: {self.DATE_TIME_FORMAT}",
+                f"Invalid date format, please follow next format: {self.DATE_TIME_FORMAT}"
+                f"or you forgot to add `start_date` or `end_date`",
                 status=400,
             )
 
