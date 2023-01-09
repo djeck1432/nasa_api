@@ -97,7 +97,8 @@ class ObjectsViewTestCase(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(
             response.content,
-            b"Invalid date format, please follow next format: YYYY-MM-DD",
+            b"Invalid date format, please follow next format: YYYY-MM-DD"
+            b"or you forgot to add `start_date` or `end_date`",
         )
 
     def test_get_success(self):
